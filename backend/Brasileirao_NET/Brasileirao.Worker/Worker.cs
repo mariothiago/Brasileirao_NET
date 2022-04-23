@@ -24,17 +24,18 @@ namespace Brasileirao.Worker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTime.Now);
-                var partidas = await _service.GetPartidasByRodada(1);
+                var partidas = await _service.GetPartidasByRodada(3);
                 foreach(Partidas partida in partidas)
                 {
                     _logger.LogInformation(
-                        $"Rodada {partida.Rodada} do Brasileirão, \r\n" +
+                        $"Rodada {partida.Rodada} do Brasileirão: \r\n" +
                         $"{partida.TimeMandante} x {partida.TimeVisitante}\r\n" +
                         $"Data: {partida.DataJogo}\r\n" +
                         $"Estádio {partida.Estadio}\r\n" +
                         $"Localização: {partida.Localizacao}");
                 }
                 await StopAsync(stoppingToken);
+                _logger.LogInformation("Worker finished at: {time}", DateTime.Now);
             }
         }
     }

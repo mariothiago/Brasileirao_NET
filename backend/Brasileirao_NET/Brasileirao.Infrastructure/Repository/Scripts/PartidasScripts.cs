@@ -24,11 +24,11 @@ namespace Brasileirao.Infrastructure.Repository.Scripts
                                                     LOCAL_PARTIDA, 
                                                     ESTADIO_PARTIDA, 
                                                     RODADA)
-                                                VALUES(@TimeMandante
+                                                VALUES( @TimeMandante
                                                         , @TimeVisitante
-                                                        , @DataHoraPartida
-                                                        , @LocalPartida
-                                                        , @EstadioPartida
+                                                        , @DataJogo
+                                                        , @Localizacao
+                                                        , @Estadio
                                                         , @Rodada);";
     }
 }
