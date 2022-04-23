@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.API", "Brasileirao.API\Brasileirao.API.csproj", "{E7DE9945-6D14-4FA5-848C-B137B5AF417C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brasileirao.API", "Brasileirao.API\Brasileirao.API.csproj", "{E7DE9945-6D14-4FA5-848C-B137B5AF417C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.Infrastructure", "Brasileirao.Infrastructure\Brasileirao.Infrastructure.csproj", "{985C0AFA-1D48-497F-BEAA-BE5408ADA97A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brasileirao.Infrastructure", "Brasileirao.Infrastructure\Brasileirao.Infrastructure.csproj", "{985C0AFA-1D48-497F-BEAA-BE5408ADA97A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.Worker", "Brasileirao.Worker\Brasileirao.Worker.csproj", "{71C24A3F-FE9F-47B1-A9FB-721F5194050D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{985C0AFA-1D48-497F-BEAA-BE5408ADA97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{985C0AFA-1D48-497F-BEAA-BE5408ADA97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{985C0AFA-1D48-497F-BEAA-BE5408ADA97A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C24A3F-FE9F-47B1-A9FB-721F5194050D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C24A3F-FE9F-47B1-A9FB-721F5194050D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C24A3F-FE9F-47B1-A9FB-721F5194050D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C24A3F-FE9F-47B1-A9FB-721F5194050D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
