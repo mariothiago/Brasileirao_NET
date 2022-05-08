@@ -12,44 +12,49 @@ using System.Threading.Tasks;
 
 namespace Brasileirao.Infrastructure.Repository
 {
-    public class CartolaRepository : ICartolaRepository
+    public class PalpitesRepository : IPalpitesRepository
     {
         private IConfiguration _configuration;
 
-        public CartolaRepository(IConfiguration config)
+        public PalpitesRepository(IConfiguration config)
         {
             _configuration = config;
         }
 
-        public Task<IEnumerable<Cartola>> GetAll()
+        public Task<int> DeletePalpite(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Cartola>> GetByTime(int idTime)
+        public async Task<IEnumerable<Palpites>> GetAllPalpites()
         {
             try
             {
                 using (var connection = new MySqlConnection(
                     _configuration.GetConnectionString("DefaultConnection")))
                 {
-                    return await connection.QueryAsync<Cartola>(CartolaScripts.GetByTeam, new { IdTime = idTime});
+                    return await connection.QueryAsync<Palpites>(PalpitesScripts.GetAllPalpites);
                 }
             }
             catch (Exception) { throw; }
         }
 
-        public async Task<int> Insert(IEnumerable<Cartola> cartola)
+        public async Task<int> InsertPalpite(Palpites palpites)
         {
             try
             {
                 using (var connection = new MySqlConnection(
                     _configuration.GetConnectionString("DefaultConnection")))
                 {
-                    return await connection.ExecuteAsync(CartolaScripts.Insert, cartola);
+                    return await connection.ExecuteAsync(PalpitesScripts.InsertPalpite, palpites);
                 }
             }
             catch (Exception) { throw; }
+        }
+
+        public Task<int> UpdatePalpites(Palpites palpites)
+        {
+            throw new NotImplementedException();
         }
     }
 }

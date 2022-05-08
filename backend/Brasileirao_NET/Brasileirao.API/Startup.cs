@@ -26,6 +26,7 @@ namespace Brasileirao.API
         {
             services.AddTransient<IPartidasService, PartidasService>();
             services.AddTransient<ICartolaService, CartolaService>();
+            services.AddTransient<IPalpitesService, PalpitesService>();
 
             string mySqlConnection = Configuration.GetConnectionString("DefaultConnection");
 

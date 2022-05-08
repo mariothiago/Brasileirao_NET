@@ -11,6 +11,6 @@ namespace Brasileirao.Infrastructure.Service.Interfaces
     {
         public Task<IEnumerable<Cartola>> GetAll();
         public Task<IEnumerable<Cartola>> GetByTime(int idTime);
-        public Task<int> Insert(Cartola cartola);
+        public Task<int> Insert(IEnumerable<Cartola> cartola);
     }
 }

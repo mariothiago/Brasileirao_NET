@@ -30,7 +30,7 @@ namespace Brasileirao.Infrastructure.Service
             catch (Exception) { throw; }
         }
 
-        public async Task<int> Insert(Cartola cartola)
+        public async Task<int> Insert(IEnumerable<Cartola> cartola)
         {
             try
             {

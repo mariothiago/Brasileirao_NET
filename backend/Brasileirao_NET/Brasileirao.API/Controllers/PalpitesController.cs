@@ -1,8 +1,8 @@
-﻿using Brasileirao.Infrastructure.Model;
+﻿using Brasileirao.API.DTOs.Palpite;
+using Brasileirao.Infrastructure.Model;
 using Brasileirao.Infrastructure.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -11,22 +11,21 @@ namespace Brasileirao.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CartolaController : Controller
+    public class PalpitesController : Controller
     {
-        private ICartolaService _service { get; set; }
+        private IPalpitesService _service { get; set; }
 
-        public CartolaController(ICartolaService service)
+        public PalpitesController(IPalpitesService service)
         {
             _service = service;
         }
 
-        [HttpGet("obter-pelo-time")]
-        public async Task<IActionResult> GetByTime([FromQuery] int idTime)
+        [HttpGet("obter-palpites")]
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var data = await _service.GetByTime(idTime);
-
+                var data = await _service.GetAllPalpites();
                 if (data.Count() > 0)
                     return Ok(data);
                 else
@@ -38,15 +37,16 @@ namespace Brasileirao.API.Controllers
             }
         }
 
-        [HttpPost("inserir-atleta")]
-        public async Task<IActionResult> Insert([FromBody] List<Cartola> cartola)
+        [HttpPost("inserir-palpite")]
+        public async Task<IActionResult> Insert([FromBody] InsertPalpitesDTO palpites)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var data = await _service.Insert(cartola);
+                Palpites model = palpites.GetModel();
+                var data = await _service.InsertPalpite(model);
 
                 if (data > 0)
                     return Ok(data);

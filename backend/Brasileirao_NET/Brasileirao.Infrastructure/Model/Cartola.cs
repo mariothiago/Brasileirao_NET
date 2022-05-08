@@ -11,6 +11,7 @@ namespace Brasileirao.Infrastructure.Model
         public int Id { get; set; }
         public string NomeJogador { get; set; }
         public string Posicao { get; set; }
+        public int IdTime { get; set; }
         public string Time { get; set; }
         public decimal Pontuacao { get; set; }
     }
