@@ -11,9 +11,9 @@ namespace Brasileirao.Worker
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IPartidasService _service;
+        private readonly IPalpitesService _service;
 
-        public Worker(ILogger<Worker> logger, IPartidasService service)
+        public Worker(ILogger<Worker> logger, IPalpitesService service)
         {
             _logger = logger;
             _service = service;
@@ -24,15 +24,14 @@ namespace Brasileirao.Worker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTime.Now);
-                var partidas = await _service.GetPartidasByRodada(5);
-                foreach(Partidas partida in partidas)
+                var palpites = await _service.GetPalpitesPorRodada(5);
+                foreach(Palpites palpite in palpites)
                 {
                     _logger.LogInformation(
-                        $"Rodada {partida.Rodada} do Brasileirão: \r\n" +
-                        $"{partida.TimeMandante} x {partida.TimeVisitante}\r\n" +
-                        $"Data: {partida.DataJogo}\r\n" +
-                        $"Estádio {partida.Estadio}\r\n" +
-                        $"Localização: {partida.Localizacao}");
+                        $"RODADA 6 \r\n" + 
+                        $"Seu palpite no jogo {palpite.TimeMandante} x {palpite.TimeVisitante} foi: \r\n" +
+                        $"{palpite.TimeMandante} {palpite.PlacarMandante } x {palpite.PlacarVisitante} {palpite.TimeVisitante}\r\n"
+                    );
                 }
 
                 await StopAsync(stoppingToken);

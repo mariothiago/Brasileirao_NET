@@ -21,11 +21,11 @@ namespace Brasileirao.API.Controllers
         }
 
         [HttpGet("obter-palpites")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetPalpitesPorRodada([FromQuery] int rodada)
         {
             try
             {
-                var data = await _service.GetAllPalpites();
+                var data = await _service.GetPalpitesPorRodada(rodada);
                 if (data.Count() > 0)
                     return Ok(data);
                 else
@@ -47,6 +47,46 @@ namespace Brasileirao.API.Controllers
 
                 Palpites model = palpites.GetModel();
                 var data = await _service.InsertPalpite(model);
+
+                if (data > 0)
+                    return Ok(data);
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPut("alterar-palpite")]
+        public async Task<IActionResult> Update([FromBody] UpdatePalpitesDTO palpite)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                Palpites model = palpite.GetModel();
+                var data = await _service.UpdatePalpites(model);
+
+                if (data > 0)
+                    return Ok(data);
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete("excluir")]
+        public async Task<IActionResult> Delete (int id)
+        {
+            try
+            {
+                var data = await _service.DeletePalpite(id);
 
                 if (data > 0)
                     return Ok(data);

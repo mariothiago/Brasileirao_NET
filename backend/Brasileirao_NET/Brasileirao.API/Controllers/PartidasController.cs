@@ -1,4 +1,5 @@
-﻿using Brasileirao.Infrastructure.Model;
+﻿using Brasileirao.API.DTOs.Partida;
+using Brasileirao.Infrastructure.Model;
 using Brasileirao.Infrastructure.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,11 +43,30 @@ namespace Brasileirao.API.Controllers
         }
 
         [HttpPost("criar-partida")]
-        public async Task<IActionResult> CreatePartida(Partidas partida)
+        public async Task<IActionResult> CreatePartida(InsertPartidaDTO partida)
         {
             try
             {
-                var result = await _service.CreatePartida(partida);
+                Partidas model = partida.GetModel();
+                var result = await _service.CreatePartida(model);
+
+                if (result > 0)
+                    return Ok(result);
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPut("alterar-partida")]
+        public async Task<IActionResult> Update(Partidas partida)
+        {
+            try
+            {
+                var result = await _service.UpdatePartida(partida);
 
                 if (result > 0)
                     return Ok(result);

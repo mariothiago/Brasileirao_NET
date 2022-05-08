@@ -50,9 +50,18 @@ namespace Brasileirao.Infrastructure.Repository
         }
 
 
-        public Task<int> UpdatePartida(Partidas partida)
+        public async Task<int> UpdatePartida(Partidas partida)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var connection = new MySqlConnection(
+                    _configuration.GetConnectionString("DefaultConnection")))
+                {
+                    return await connection.ExecuteAsync(PartidasScripts.UpdatePartida, partida);
+                }
+            }
+
+            catch (Exception) { throw; }
         }
     }
 }

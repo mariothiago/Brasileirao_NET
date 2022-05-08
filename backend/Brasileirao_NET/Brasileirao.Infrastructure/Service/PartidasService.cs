@@ -36,9 +36,13 @@ namespace Brasileirao.Infrastructure.Service
             catch (Exception) { throw; }
         }
 
-        public Task<int> UpdatePartida(Partidas partida)
+        public async Task<int> UpdatePartida(Partidas partida)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _repository.UpdatePartida(partida);
+            }
+            catch (Exception) { throw; }
         }
     }
 }

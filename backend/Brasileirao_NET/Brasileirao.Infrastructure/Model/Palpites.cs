@@ -8,6 +8,7 @@ namespace Brasileirao.Infrastructure.Model
 {
     public class Palpites
     {
+        public int Id { get; set; }
         public int Partida { get; set; }
         public int PlacarMandante { get; set; }
         public string TimeMandante { get; set; }

@@ -4,8 +4,6 @@ using Brasileirao.Infrastructure.Service.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Brasileirao.Infrastructure.Service
@@ -18,9 +16,13 @@ namespace Brasileirao.Infrastructure.Service
             _repository = new PalpitesRepository(config);
         }
 
-        public Task<int> DeletePalpite(int id)
+        public async Task<int> DeletePalpite(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _repository.DeletePalpite(id);
+            }
+            catch (Exception) { throw; }
         }
 
         public async Task<int> InsertPalpite(Palpites palpites)
@@ -32,16 +34,20 @@ namespace Brasileirao.Infrastructure.Service
             catch (Exception) { throw; }
         }
 
-        public Task<int> UpdatePalpites(Palpites palpites)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Palpites>> GetAllPalpites()
+        public async Task<int> UpdatePalpites(Palpites palpites)
         {
             try
             {
-                return await _repository.GetAllPalpites();
+                return await _repository.UpdatePalpites(palpites);
+            }
+            catch (Exception) { throw; }
+        }
+
+        public async Task<IEnumerable<Palpites>> GetPalpitesPorRodada(int rodada)
+        {
+            try
+            {
+                return await _repository.GetPalpitesPorRodada(rodada);
             }
             catch (Exception) { throw; }
         }

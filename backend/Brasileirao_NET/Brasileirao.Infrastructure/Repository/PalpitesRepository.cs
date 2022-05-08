@@ -21,19 +21,27 @@ namespace Brasileirao.Infrastructure.Repository
             _configuration = config;
         }
 
-        public Task<int> DeletePalpite(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Palpites>> GetAllPalpites()
+        public async Task<int> DeletePalpite(int id)
         {
             try
             {
                 using (var connection = new MySqlConnection(
                     _configuration.GetConnectionString("DefaultConnection")))
                 {
-                    return await connection.QueryAsync<Palpites>(PalpitesScripts.GetAllPalpites);
+                    return await connection.ExecuteAsync(PalpitesScripts.DeletePalpites, new { Id = id } );
+                }
+            }
+            catch (Exception) { throw; }
+        }
+
+        public async Task<IEnumerable<Palpites>> GetPalpitesPorRodada(int rodada)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(
+                    _configuration.GetConnectionString("DefaultConnection")))
+                {
+                    return await connection.QueryAsync<Palpites>(PalpitesScripts.GetPalpitesPorRodada, new { Rodada = rodada });
                 }
             }
             catch (Exception) { throw; }
@@ -52,9 +60,17 @@ namespace Brasileirao.Infrastructure.Repository
             catch (Exception) { throw; }
         }
 
-        public Task<int> UpdatePalpites(Palpites palpites)
+        public async Task<int> UpdatePalpites(Palpites palpites)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var connection = new MySqlConnection(
+                    _configuration.GetConnectionString("DefaultConnection")))
+                {
+                    return await connection.ExecuteAsync(PalpitesScripts.UpdatePalpites, palpites);
+                }
+            }
+            catch (Exception) { throw; }
         }
     }
 }

@@ -30,5 +30,14 @@ namespace Brasileirao.Infrastructure.Repository.Scripts
                                                         , @Localizacao
                                                         , @Estadio
                                                         , @Rodada);";
-    }
+
+        internal static string UpdatePartida = $@"UPDATE PARTIDAS
+                                                    SET TIME_MANDANTE = @TimeMandante,
+                                                    TIME_VISITANTE = @TimeVisitante,
+                                                    DATA_HORA_PATIDA = @DataJogo,
+                                                    LOCAL_PARTIDA = @Localizacao,
+                                                    ESTADIO_PARTIDA = @Estadio,
+                                                    RODADA = @Rodada
+                                                    WHERE ID = @Id;";
+                                                        }
 }
