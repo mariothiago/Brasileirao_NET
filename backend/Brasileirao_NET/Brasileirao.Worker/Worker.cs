@@ -24,7 +24,7 @@ namespace Brasileirao.Worker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTime.Now);
-                var palpites = await _service.GetPalpitesPorRodada(5);
+                var palpites = await _service.GetPalpitesPorRodada(6);
                 foreach(Palpites palpite in palpites)
                 {
                     _logger.LogInformation(
