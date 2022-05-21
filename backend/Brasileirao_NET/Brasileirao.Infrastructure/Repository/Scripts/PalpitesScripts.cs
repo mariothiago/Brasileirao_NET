@@ -26,7 +26,10 @@ namespace Brasileirao.Infrastructure.Repository.Scripts
                                                     PR.TIME_MANDANTE AS TimeMandante,
                                                     PL.PLACAR_MANDANTE AS PlacarMandante,
                                                     PR.TIME_VISITANTE AS TimeVisitante,
-                                                    PL.PLACAR_VISITANTE AS PlacarVisitante
+                                                    PL.PLACAR_VISITANTE AS PlacarVisitante,
+                                                    PR.DATA_HORA_PATIDA AS DataJogo,
+                                                    PR.LOCAL_PARTIDA AS Localizacao,
+                                                    PR.ESTADIO_PARTIDA AS Estadio
                                                     FROM PALPITE_PARTIDA AS PL
                                                     INNER JOIN PARTIDAS AS PR 
                                                     ON PL.ID_PARTIDA = PR.ID

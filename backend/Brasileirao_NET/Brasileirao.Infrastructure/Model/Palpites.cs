@@ -14,5 +14,8 @@ namespace Brasileirao.Infrastructure.Model
         public string TimeMandante { get; set; }
         public int PlacarVisitante { get; set; }
         public string TimeVisitante { get; set; }
+        public string Localizacao { get; set; }
+        public string Estadio { get; set; }
+        public DateTime DataJogo { get; set; }
     }
 }
