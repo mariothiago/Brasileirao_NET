@@ -14,6 +14,7 @@
     "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-resaga": "^2.0.0-beta",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux-saga": "^1.1.3",

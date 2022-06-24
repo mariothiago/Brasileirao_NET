@@ -24,11 +24,11 @@ namespace Brasileirao.Worker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTime.Now);
-                var palpites = await _service.GetPalpitesPorRodada(7);
+                var palpites = await _service.GetPalpitesPorRodada(14);
                 foreach(Palpites palpite in palpites)
                 {
                     _logger.LogInformation(
-                        $"RODADA 6 \r\n" + 
+                        $"RODADA 14 \r\n" + 
                         $"Seu palpite no jogo {palpite.TimeMandante} x {palpite.TimeVisitante} foi: \r\n" +
                         $"{palpite.TimeMandante} {palpite.PlacarMandante } x {palpite.PlacarVisitante} {palpite.TimeVisitante}\r\n"
                     );
