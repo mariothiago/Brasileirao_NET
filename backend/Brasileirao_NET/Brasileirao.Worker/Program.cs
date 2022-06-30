@@ -18,7 +18,7 @@ namespace Brasileirao.Worker
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
-                    services.AddSingleton<IPalpitesService, PalpitesService>();
+                    services.AddSingleton<IVerificaPalpiteService, VerificaPalpiteService>();
                 });
     }
 }

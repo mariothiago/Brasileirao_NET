@@ -3,7 +3,6 @@ using Brasileirao.Infrastructure.Model;
 using Brasileirao.Infrastructure.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -61,12 +60,13 @@ namespace Brasileirao.API.Controllers
             }
         }
 
-        [HttpPut("alterar-partida")]
-        public async Task<IActionResult> Update(Partidas partida)
+        [HttpPut("resultado-partida")]
+        public async Task<IActionResult> InserirResultadoPartida(InsertResultadoDTO partida)
         {
             try
             {
-                var result = await _service.UpdatePartida(partida);
+                Partidas model = partida.GetModel();
+                var result = await _service.UpdatePartida(model);
 
                 if (result > 0)
                     return Ok(result);

@@ -10,7 +10,9 @@ namespace Brasileirao.Infrastructure.Repository.Scripts
     {
         internal static string GetByRodada = $@"SELECT ID AS Id
                                                     , TIME_MANDANTE AS TimeMandante
+                                                    , PLACAR_MANDANTE AS PlacarMandante
                                                     , TIME_VISITANTE AS TimeVisitante
+                                                    , PLACAR_VISITANTE AS PlacarVisitante
                                                     , DATA_HORA_PATIDA AS DataJogo
                                                     , LOCAL_PARTIDA AS Localizacao
                                                     , ESTADIO_PARTIDA AS Estadio
@@ -32,12 +34,8 @@ namespace Brasileirao.Infrastructure.Repository.Scripts
                                                         , @Rodada);";
 
         internal static string UpdatePartida = $@"UPDATE PARTIDAS
-                                                    SET TIME_MANDANTE = @TimeMandante,
-                                                    TIME_VISITANTE = @TimeVisitante,
-                                                    DATA_HORA_PATIDA = @DataJogo,
-                                                    LOCAL_PARTIDA = @Localizacao,
-                                                    ESTADIO_PARTIDA = @Estadio,
-                                                    RODADA = @Rodada
+                                                    SET PLACAR_MANDANTE = @PlacarMandante,
+                                                    PLACAR_VISITANTE = @PlacarVisitante
                                                     WHERE ID = @Id;";
-                                                        }
+    }
 }

@@ -8,8 +8,10 @@ namespace Brasileirao.Infrastructure.Model
         public long Id { get; set; }
         [Required]
         public string TimeMandante { get; set; }
+        public int PlacarMandante { get; set; }
         [Required]
         public string TimeVisitante { get; set; }
+        public int PlacarVisitante { get; set; }
         [Required]
         public string Localizacao { get; set; }
         [Required]
