@@ -1,4 +1,4 @@
-import { Form, Popconfirm, Select, Table, Typography } from "antd";
+import { Form, Popconfirm, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Partidas } from './interfaces';
