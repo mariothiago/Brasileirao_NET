@@ -3,6 +3,7 @@ using Brasileirao.Infrastructure.Repository;
 using Brasileirao.Infrastructure.Service.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,7 @@ namespace Brasileirao.Infrastructure.Service
                 string result = "";
 
                 var linha = new StringBuilder();
+                linha.AppendLine("#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#");
                 foreach (Palpites palpite in palpites)
                 {
                     foreach(Partidas partida in resultados)
@@ -53,6 +55,21 @@ namespace Brasileirao.Infrastructure.Service
                 }
 
                 return linha.ToString();
+            }
+            catch (Exception) { throw; }
+        }
+
+        public string GravarArquivo(string texto)
+        {
+            try
+            {
+                string fileName = "TestePalpites.txt";
+
+                File.AppendAllTextAsync(fileName, texto);
+
+                string readText = File.ReadAllText(fileName);
+
+                return readText;
             }
             catch (Exception) { throw; }
         }

@@ -25,6 +25,8 @@ namespace Brasileirao.Worker
                 _logger.LogInformation("Worker running at: {time}", DateTime.Now);
                 var palpites = await _service.VerificarPalpites(14);
 
+                _service.GravarArquivo(palpites);
+
                 _logger.LogInformation(palpites);
 
                 await StopAsync(stoppingToken);

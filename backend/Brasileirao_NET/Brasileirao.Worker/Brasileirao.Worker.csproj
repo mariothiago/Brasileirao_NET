@@ -17,4 +17,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Brasileirao.Infrastructure\Brasileirao.Infrastructure.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
 </Project>
