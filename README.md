@@ -1,5 +1,5 @@
-<h1 align="center"> API Brasileirão 2022 </h1>
-API para cadastro, visualização de palpites e partidas do campeonato Brasileiro 2022.
+<h1 align="center"> API Brasileirão </h1>
+API para cadastro, visualização de palpites e partidas do campeonato Brasileiro.
 
 ## 💻 Pré-requisitos
 
