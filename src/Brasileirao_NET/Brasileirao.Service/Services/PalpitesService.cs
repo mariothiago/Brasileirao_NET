@@ -15,38 +15,22 @@ public class PalpitesService : IPalpitesService
 
     public async Task<int> DeletePalpite(int id)
     {
-        try
-        {
-            return await _repository.DeletePalpite(id);
-        }
-        catch (Exception) { throw; }
+        return await _repository.DeletePalpite(id);
     }
 
     public async Task<int> InsertPalpite(Palpites palpites)
     {
-        try
-        {
-            return await _repository.InsertPalpite(palpites);
-        }
-        catch (Exception) { throw; }
+        return await _repository.InsertPalpite(palpites);
     }
 
     public async Task<int> UpdatePalpites(Palpites palpites)
     {
-        try
-        {
-            return await _repository.UpdatePalpites(palpites);
-        }
-        catch (Exception) { throw; }
+        return await _repository.UpdatePalpites(palpites);
     }
 
     public async Task<IEnumerable<Palpites>> GetPalpitesPorRodada(int rodada)
     {
-        try
-        {
-            return await _repository.GetPalpitesPorRodada(rodada);
-        }
-        catch (Exception) { throw; }
+        return await _repository.GetPalpitesPorRodada(rodada);
     }
 }
 

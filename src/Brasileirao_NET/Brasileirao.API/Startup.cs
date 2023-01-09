@@ -40,10 +40,11 @@ public class Startup
             c.SwaggerDoc("v1",
                 new OpenApiInfo
                 {
-                    Title = "API Brasileir�o 2022",
+                    Title = "API Brasileirão",
                     Version = "v1",
-                    Description = "API REST de partidas e palpites do Campeonato Brasileiro 2022"
-                });
+                    Description = "API de partidas e palpites do Campeonato Brasileiro. Objetivo dessa API é registrar partidas e palpites e retornar ao usuário seus palpites feitos"
+                }
+            );
         });
     }
 

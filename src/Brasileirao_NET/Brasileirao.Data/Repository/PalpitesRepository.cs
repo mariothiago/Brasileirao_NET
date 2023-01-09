@@ -29,6 +29,19 @@ public class PalpitesRepository : IPalpitesRepository
         catch (Exception) { throw; }
     }
 
+    public async Task<Palpites> GetPalpitesPorId(long id)
+    {
+        try
+        {
+            using (var connection = new MySqlConnection(
+                _configuration.GetConnectionString("DefaultConnection")))
+            {
+                return await connection.QueryFirstAsync<Palpites>(PalpitesScripts.GetPalpitesPorId, new { Id = id });
+            }
+        }
+        catch (Exception) { throw; }
+    }
+
     public async Task<IEnumerable<Palpites>> GetPalpitesPorRodada(int rodada)
     {
         try

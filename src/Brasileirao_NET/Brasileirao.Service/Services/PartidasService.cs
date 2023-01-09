@@ -12,30 +12,23 @@ public class PartidasService : IPartidasService
     {
         _repository = new PartidasRepository(config);
     }
+
     public async Task<int> CreatePartida(Partidas partida)
     {
-        try
-        {
-            return await _repository.CreatePartida(partida);
-        }
-        catch (Exception) { throw; }
+        partida.Flag = "P"; // pendente por default.
+        return await _repository.CreatePartida(partida);
     }
 
     public async Task<IEnumerable<Partidas>> GetPartidasByRodada(int rodada)
     {
-        try
-        {
-            return await _repository.GetPartidasByRodada(rodada);
-        }
-        catch (Exception) { throw; }
+        return await _repository.GetPartidasByRodada(rodada);
     }
 
     public async Task<int> UpdatePartida(Partidas partida)
     {
-        try
-        {
-            return await _repository.UpdatePartida(partida);
-        }
-        catch (Exception) { throw; }
+        if(!string.IsNullOrEmpty(partida.PlacarMandante.ToString()) && !string.IsNullOrEmpty(partida.PlacarVisitante.ToString()))
+            partida.Flag = "C"; // flag aprovado.
+
+        return await _repository.UpdatePartida(partida);
     }
 }

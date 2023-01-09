@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.Service", "Bras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.Data", "Brasileirao.Data\Brasileirao.Data.csproj", "{2FCF59F7-117E-4196-B0FD-8E8F1BC1DE21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasileirao.Worker", "Brasileirao.Worker\Brasileirao.Worker.csproj", "{C4956CB3-921C-463E-81C8-A25891C3DF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2FCF59F7-117E-4196-B0FD-8E8F1BC1DE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FCF59F7-117E-4196-B0FD-8E8F1BC1DE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FCF59F7-117E-4196-B0FD-8E8F1BC1DE21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4956CB3-921C-463E-81C8-A25891C3DF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4956CB3-921C-463E-81C8-A25891C3DF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4956CB3-921C-463E-81C8-A25891C3DF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4956CB3-921C-463E-81C8-A25891C3DF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

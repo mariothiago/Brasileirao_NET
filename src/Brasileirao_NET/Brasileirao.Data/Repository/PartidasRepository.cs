@@ -44,6 +44,18 @@ public class PartidasRepository : IPartidasRepository
         catch (Exception) { throw; }
     }
 
+    public async Task<IEnumerable<Partidas>> GetPartidasAtualizadas()
+    {
+        try
+        {
+            using (var connection = new MySqlConnection(
+                _configuration.GetConnectionString("DefaultConnection")))
+            {
+                return await connection.QueryAsync<Partidas>(PartidasScripts.GetPartidasAtualizada);
+            }
+        }
+        catch (Exception) { throw; }
+    }
 
     public async Task<int> UpdatePartida(Partidas partida)
     {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Brasileirao.Domain.Model;
 public class Partidas
@@ -19,4 +18,5 @@ public class Partidas
     public DateTime DataJogo { get; set; }
     [Required]
     public int Rodada { get; set; }
+    public string? Flag { get; set; }
 }
